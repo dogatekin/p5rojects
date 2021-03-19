@@ -12,7 +12,7 @@ function draw() {
   
   xoff = start
   beginShape()
-  for (let x = 0; x < width; x+=2) {
+  for (let x = 0; x < width; x++) {
     xoff += inc
     y = noise(xoff) * height
     vertex(x, y)
@@ -22,5 +22,5 @@ function draw() {
   fill(0)
   ellipse(width, y, 15)
   
-  start += inc
+  start += inc*2
 }
