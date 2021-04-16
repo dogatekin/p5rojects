@@ -37,6 +37,8 @@ class Mover {
     this.pos.add(this.vel)
 
     this.bounce()
+
+    this.acc.set(0, 0)
   }
 
   show() {
