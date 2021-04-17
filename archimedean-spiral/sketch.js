@@ -12,9 +12,9 @@ function draw() {
   spiralWidth = 1
   angle += 0.001
 
-  if (mouseIsPressed) {
-    angle += 0.1
-  }
+  // if (mouseIsPressed) {
+  //   angle += 0.1
+  // }
 
   drawSpiral()
   // fill(0)
@@ -26,7 +26,7 @@ function drawSpiral() {
   oldY = height / 2;
 
   for (let i = 0; i < size; i++) {
-    newAngle = angle*i;
+    newAngle = angle * i;
     x = (width / 2) + (spiralWidth * newAngle) * Math.sin(newAngle);
     y = (height / 2) + (spiralWidth * newAngle) * Math.cos(newAngle);
 
