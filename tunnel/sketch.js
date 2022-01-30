@@ -35,11 +35,14 @@ window.setup = function () {
 window.draw = function () {
   let st = t() / 2;
 
+  let mx = width / 2;
+  let my = height / 2;
+
   for (let i = 1; i <= 250; i++) {
     st -= 0.001 + sin(TAU * st / 5) * 0.003;
 
-    let x = 64 + sin(TAU * st) * 30;
-    let y = 64 + cos(TAU * st) * 30;
+    let x = mx + sin(TAU * st) * 30;
+    let y = my + cos(TAU * st) * 30;
 
     let ind = Math.floor(mod(i * 0.044 - t() * 10, 11)) + 1;
     let c = colors[ind];
