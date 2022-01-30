@@ -16,18 +16,22 @@ window.setup = function () {
   water = color(31, 44, 80);
   moon = color(253, 241, 233);
 
-  background(night);
-  noStroke();
-  fill(moon);
-  ellipse(moonx, moony, 2 * moonr);
-
-  // loadPixels();
   canvas.style('width', '400px');
   canvas.style('height', '400px');
 }
 
 window.draw = function () {
   randomSeed(0);
+
+  if (mouseIsPressed) {
+    moonx = mouseX;
+    moony = mouseY;
+  }
+
+  background(night);
+  noStroke();
+  fill(moon);
+  ellipse(moonx, moony, 2 * moonr);
 
   noStroke();
   fill(night);
@@ -41,7 +45,9 @@ window.draw = function () {
       let w = cos(2 * PI * (random() + t())) * 12 / z;
 
       if (w > 0) {
-        if ((moonx - x) ** 2 + (moony - (y / 2) ** 2) < (moonr / 16) ** 2) {
+        let ry = 49 - y / 2;
+        let d2 = (moonx - x) ** 2 + (moony - ry) ** 2
+        if (d2 < moonr ** 2) {
           stroke(moon);
         } else {
           stroke(water);
