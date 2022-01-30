@@ -1,5 +1,8 @@
 let t;
 let night, water, moon;
+let moonx = 30,
+  moony = 22,
+  moonr = 15;
 
 window.setup = function () {
   let canvas = createCanvas(128, 128);
@@ -16,7 +19,7 @@ window.setup = function () {
   background(night);
   noStroke();
   fill(moon);
-  ellipse(30, 22, 30);
+  ellipse(moonx, moony, 2 * moonr);
 
   // loadPixels();
   canvas.style('width', '400px');
@@ -38,11 +41,11 @@ window.draw = function () {
       let w = cos(2 * PI * (random() + t())) * 12 / z;
 
       if (w > 0) {
-        // if (get(x, 49 - y / 2)[0] == red(moon)) {
-        //   stroke(moon);
-        // } else {
-        stroke(water);
-        // }
+        if ((moonx - x) ** 2 + (moony - (y / 2) ** 2) < (moonr / 16) ** 2) {
+          stroke(moon);
+        } else {
+          stroke(water);
+        }
 
         line(x - w, y + 50, x + w, y + 50);
       }
